@@ -14,18 +14,18 @@ const morgan = require('morgan');
 //initializeaza o instanta a aplicatiei Express
 const app = express();
 
-//Această linie spune aplicației Express să folosească middleware-ul Morgan 
-//pentru logging, cu formatul 'combine', care este un format predefinit de Morgan 
+//Această linie spune aplicației Express să folosească middleware-ul Morgan
+//pentru logging, cu formatul 'combined', care este un format predefinit de Morgan
 //ce combină mai multe informații despre cerere.
-app.use(morgan('combine'))
+app.use(morgan('combined'))
 
 //foloseste un middleware pentru a analiza corpul cererilor JSON
-app.use(express.json()); 
+app.use(express.json());
 
 app.use(cors());
 
-//Aceasta creează un route de tip GET la calea '/status'. 
-//Funcția cu parametrii `req` (cerere) și `res` (răspuns) va fi executată 
+//Aceasta creează un route de tip GET la calea '/status'.
+//Funcția cu parametrii `req` (cerere) și `res` (răspuns) va fi executată
 //atunci când acest endpoint este accesat.
 app.get('/status', (req, res) => {
     res.send({
